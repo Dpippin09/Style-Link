@@ -97,7 +97,7 @@ const mockShoeData = [
  */
 export const searchShoes = async (query) => {
   // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 800));
+  await new Promise(resolve => setTimeout(resolve, 500));
   
   const lowerQuery = query.toLowerCase();
   

@@ -51,11 +51,9 @@ function ShoeCard({ shoe }) {
           </div>
         </div>
         
-        {bestDeal && (
-          <div className="savings-info">
-            Save up to ${(Math.max(...shoe.retailers.map(r => r.price)) - bestDeal.price).toFixed(2)} by choosing the best deal!
-          </div>
-        )}
+        <div className="savings-info">
+          Save up to ${(Math.max(...shoe.retailers.map(r => r.price)) - bestDeal.price).toFixed(2)} by choosing the best deal!
+        </div>
       </div>
     </div>
   );
