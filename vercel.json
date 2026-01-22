@@ -2,20 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "stylelink/package.json",
+      "src": "package.json",
       "use": "@vercel/next",
       "config": {
         "distDir": ".next"
       }
-    }
-  ],
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/stylelink/$1"
     }
   ]
 }
