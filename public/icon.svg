@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" fill="#000000" rx="80"/>
+  <g transform="translate(80, 180)">
+    <!-- STYLELINK Logo -->
+    <text x="50" y="80" font-family="sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="left">
+      STYL
+    </text>
+    <text x="190" y="80" font-family="sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="left" transform="scale(-1, 1)">
+      E
+    </text>
+    <text x="210" y="80" font-family="sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="left">
+      LINK
+    </text>
+    
+    <!-- Shoe Icon -->
+    <path d="M50 120 Q80 110 120 115 Q180 120 220 130 Q260 140 300 155 L320 165 Q330 170 320 180 L50 175 Q40 175 40 165 Q40 155 45 145 Q47 135 50 120 Z" 
+          fill="white" opacity="0.8"/>
+    <ellipse cx="80" cy="165" rx="15" ry="8" fill="#666"/>
+    <ellipse cx="150" cy="168" rx="15" ry="8" fill="#666"/>
+    <ellipse cx="220" cy="172" rx="15" ry="8" fill="#666"/>
+    <ellipse cx="280" cy="175" rx="15" ry="8" fill="#666"/>
+  </g>
+</svg>
