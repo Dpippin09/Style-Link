@@ -1,0 +1,34 @@
+.shoe-results {
+  width: 100%;
+}
+
+.results-header {
+  margin-bottom: 2rem;
+}
+
+.results-header h2 {
+  font-size: 1.8rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.results-count {
+  color: #718096;
+  font-size: 1rem;
+}
+
+.shoe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .shoe-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .results-header h2 {
+    font-size: 1.5rem;
+  }
+}
