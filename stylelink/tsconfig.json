@@ -14,8 +14,8 @@
     "jsx": "react-jsx",
     "incremental": true,
     "skipDefaultLibCheck": true,
+    "types": ["node"],
     "typeRoots": ["./node_modules/@types"],
-    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
