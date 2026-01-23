@@ -166,12 +166,6 @@ const FeaturedCollection = () => {
                   <Heart className="h-4 w-4 text-stone-600" />
                 </button>
 
-                {/* Discount Badge */}
-                {shoe.originalPrice && (
-                  <div className="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
-                    {Math.round(((shoe.originalPrice - shoe.price) / shoe.originalPrice) * 100)}% OFF
-                  </div>
-                )}
               </div>
 
               {/* Product Info */}
