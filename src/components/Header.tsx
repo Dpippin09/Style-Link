@@ -14,8 +14,19 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
   const [isInstallable, setIsInstallable] = useState(false)
+  const [isStandalone, setIsStandalone] = useState(false)
 
   useEffect(() => {
+    // Check if app is running in standalone mode (installed PWA)
+    const checkStandalone = () => {
+      const isStandaloneMode = 
+        window.matchMedia('(display-mode: standalone)').matches ||
+        (window.navigator as Navigator & { standalone?: boolean }).standalone === true
+      setIsStandalone(isStandaloneMode)
+    }
+    
+    checkStandalone()
+
     const handleBeforeInstallPrompt = (e: Event) => {
       // Prevent the mini-infobar from appearing on mobile
       e.preventDefault()
@@ -64,15 +75,17 @@ const Header = () => {
     <header className="bg-black shadow-sm border-b border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Left side - Install Button */}
+          {/* Left side - Install Button (hidden when app is installed) */}
           <div className="flex-1">
-            <button
-              onClick={handleInstallClick}
-              className="flex items-center gap-2 px-3 py-1.5 bg-white text-black rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
-            >
-              <Download className="h-4 w-4" />
-              <span className="hidden sm:inline">Install App</span>
-            </button>
+            {!isStandalone && (
+              <button
+                onClick={handleInstallClick}
+                className="flex items-center gap-2 px-3 py-1.5 bg-white text-black rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
+              >
+                <Download className="h-4 w-4" />
+                <span className="hidden sm:inline">Install App</span>
+              </button>
+            )}
           </div>
 
           {/* Logo - Centered */}
