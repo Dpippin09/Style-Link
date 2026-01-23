@@ -33,26 +33,26 @@ const mockShoes: ShoeProduct[] = [
   },
   {
     id: '2',
-    name: 'Chuck Taylor All Star',
-    brand: 'Converse',
-    price: 60,
-    retailer: 'Converse.com',
+    name: 'Air Jordan 1 Retro High OG',
+    brand: 'Jordan',
+    price: 180,
+    retailer: 'Nike.com',
     image: '/placeholder-shoe-2.jpg',
-    affiliateLink: 'https://converse.com/chuck-taylor',
-    rating: 4.3,
-    reviews: 892
+    affiliateLink: 'https://nike.com/jordan-1-retro',
+    rating: 4.9,
+    reviews: 4532
   },
   {
     id: '3',
-    name: 'Stan Smith',
+    name: 'Ultra Boost 22',
     brand: 'Adidas',
-    price: 80,
-    originalPrice: 100,
+    price: 180,
+    originalPrice: 220,
     retailer: 'Adidas.com',
     image: '/placeholder-shoe-3.jpg',
-    affiliateLink: 'https://adidas.com/stan-smith',
-    rating: 4.6,
-    reviews: 2156
+    affiliateLink: 'https://adidas.com/ultra-boost',
+    rating: 4.7,
+    reviews: 987
   }
 ]
 

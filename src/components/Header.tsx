@@ -1,18 +1,79 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ShoppingBag, Menu, X } from 'lucide-react'
+import { ShoppingBag, Menu, X, Download } from 'lucide-react'
+
+// Define the BeforeInstallPromptEvent interface
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>
+}
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
+  const [isInstallable, setIsInstallable] = useState(false)
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault()
+      // Save the event so it can be triggered later
+      setDeferredPrompt(e as BeforeInstallPromptEvent)
+      setIsInstallable(true)
+    }
+
+    const handleAppInstalled = () => {
+      // Hide the install button after installation
+      setIsInstallable(false)
+      setDeferredPrompt(null)
+    }
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+    window.addEventListener('appinstalled', handleAppInstalled)
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+      window.removeEventListener('appinstalled', handleAppInstalled)
+    }
+  }, [])
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) {
+      // Show instructions if the install prompt isn't available
+      alert('To install StyleLink:\n\n• On iPhone: Tap the Share button, then "Add to Home Screen"\n• On Android: Tap the menu (⋮) and select "Install app"\n• On Desktop: Look for the install icon in your browser\'s address bar\n\nNote: Run "npm run build && npm start" for full PWA support.')
+      return
+    }
+
+    // Show the install prompt
+    await deferredPrompt.prompt()
+
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.userChoice
+
+    if (outcome === 'accepted') {
+      setIsInstallable(false)
+    }
+
+    // Clear the deferredPrompt
+    setDeferredPrompt(null)
+  }
 
   return (
     <header className="bg-black shadow-sm border-b border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Left side spacer for centering */}
-          <div className="flex-1"></div>
+          {/* Left side - Install Button */}
+          <div className="flex-1">
+            <button
+              onClick={handleInstallClick}
+              className="flex items-center gap-2 px-3 py-1.5 bg-white text-black rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
+            >
+              <Download className="h-4 w-4" />
+              <span className="hidden sm:inline">Install App</span>
+            </button>
+          </div>
 
           {/* Logo - Centered */}
           <div className="flex items-center">

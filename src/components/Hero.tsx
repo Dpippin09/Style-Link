@@ -60,22 +60,6 @@ const Hero = () => {
                 </div>
               </form>
             </div>
-
-            {/* Popular Searches */}
-            <div className="space-y-3">
-              <p className="text-sm text-stone-600">Popular searches:</p>
-              <div className="flex flex-wrap gap-2">
-                {popularSearches.map((search, index) => (
-                  <Link
-                    key={index}
-                    href={`/search?q=${encodeURIComponent(search)}`}
-                    className="px-4 py-2 bg-stone-300 border border-stone-400 rounded-full text-sm text-stone-700 hover:bg-stone-400 hover:border-stone-500 hover:text-stone-900 transition-all shadow-sm"
-                  >
-                    {search}
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right Image */}
