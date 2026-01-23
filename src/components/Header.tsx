@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { User, ShoppingBag, Menu, X } from 'lucide-react'
+import { ShoppingBag, Menu, X } from 'lucide-react'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,11 +25,6 @@ const Header = () => {
 
           {/* Right side - User Actions */}
           <div className="flex items-center space-x-4 flex-1 justify-end">
-            {/* User Account */}
-            <button className="p-2 text-gray-400 hover:text-white transition-colors">
-              <User className="h-5 w-5" />
-            </button>
-            
             {/* Shopping Bag - Saved Items */}
             <Link href="/saved" className="p-2 text-gray-400 hover:text-white transition-colors">
               <ShoppingBag className="h-5 w-5" />
