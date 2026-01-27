@@ -27,7 +27,7 @@ const mockShoes: ShoeProduct[] = [
     originalPrice: 180,
     retailer: 'Nike.com',
     image: '/placeholder-shoe-1.jpg',
-    affiliateLink: 'https://nike.com/air-max-270',
+    affiliateLink: 'https://www.nike.com/w?q=Air%20max%20270&vst=Air%20max%20270',
     rating: 4.5,
     reviews: 1234
   },
@@ -202,7 +202,7 @@ const FeaturedCollection = () => {
                     onClick={() => handleAffiliateClick(shoe.affiliateLink, shoe.name)}
                     className="flex items-center gap-1 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium"
                   >
-                    Shop Now
+                    {shoe.retailer ? `Buy at ${shoe.retailer.replace(/\..*$/, '')}` : 'Buy Now'}
                     <ExternalLink className="h-3 w-3" />
                   </button>
                 </div>
