@@ -19,6 +19,28 @@ interface ShoeProduct {
 
 // Mock data for demonstration - you'll replace this with real API data
 const mockShoes: ShoeProduct[] = [
+      {
+        id: '5',
+        name: 'Air Jordan 2 Retro',
+        brand: 'Jordan',
+        price: 185,
+        retailer: 'Nike.com',
+        image: '/placeholder-shoe-5.jpg',
+        affiliateLink: 'https://www.nike.com/w?q=Air%20Jordan%202%20Retro&vst=Air%20Jordan%202%20Retro',
+        rating: 4.5,
+        reviews: 2100
+      },
+    {
+      id: '4',
+      name: 'Air Jordan 1 Mid',
+      brand: 'Jordan',
+      price: 125,
+      retailer: 'Nike.com',
+      image: '/placeholder-shoe-4.jpg',
+      affiliateLink: 'https://www.nike.com/w?q=Air%20Jordan%201%20Mid&vst=Air%20Jordan%201%20Mid',
+      rating: 4.6,
+      reviews: 3120
+    },
   {
     id: '1',
     name: 'Air Max 270',
@@ -38,18 +60,29 @@ const mockShoes: ShoeProduct[] = [
     price: 180,
     retailer: 'Nike.com',
     image: '/placeholder-shoe-2.jpg',
-    affiliateLink: 'https://nike.com/jordan-1-retro',
+      affiliateLink: 'https://www.nike.com/w?q=Air%20Jordan%201%20Retro%20High%20OG&vst=Air%20Jordan%201%20Retro%20High%20OG',
     rating: 4.9,
     reviews: 4532
   },
   {
     id: '3',
+    name: 'Air Jordan 1 Low',
+    brand: 'Jordan',
+    price: 115,
+    retailer: 'Nike.com',
+    image: '/placeholder-shoe-3.jpg',
+    affiliateLink: 'https://www.nike.com/w?q=Air%20Jordan%201%20Low&vst=Air%20Jordan%201%20Low',
+    rating: 4.7,
+    reviews: 3876
+  },
+  {
+    id: '4',
     name: 'Ultra Boost 22',
     brand: 'Adidas',
     price: 180,
     originalPrice: 220,
     retailer: 'Adidas.com',
-    image: '/placeholder-shoe-3.jpg',
+    image: '/placeholder-shoe-4.jpg',
     affiliateLink: 'https://adidas.com/ultra-boost',
     rating: 4.7,
     reviews: 987
@@ -66,7 +99,9 @@ const FeaturedCollection = () => {
       setLoading(true)
       // Simulate loading delay
       await new Promise(resolve => setTimeout(resolve, 1000))
-      setShoes(mockShoes)
+      // Shuffle and pick 3 random shoes
+      const shuffled = [...mockShoes].sort(() => 0.5 - Math.random())
+      setShoes(shuffled.slice(0, 3))
       setLoading(false)
     }
 
@@ -189,7 +224,7 @@ const FeaturedCollection = () => {
 
                 {/* Price */}
                 <div className="flex items-baseline mb-4">
-                  <span className="text-2xl font-bold text-black">${shoe.price}</span>
+                  <span className="text-xl font-bold text-black">${shoe.price}</span>
                   {shoe.originalPrice && (
                     <span className="ml-2 text-lg text-gray-500 line-through">${shoe.originalPrice}</span>
                   )}
