@@ -76,14 +76,14 @@ const mockShoes: ShoeProduct[] = [
     reviews: 3876
   },
   {
-    id: '4',
+    id: '6',
     name: 'Ultra Boost 22',
     brand: 'Adidas',
     price: 180,
     originalPrice: 220,
     retailer: 'Adidas.com',
     image: '/placeholder-shoe-4.jpg',
-    affiliateLink: 'https://adidas.com/ultra-boost',
+    affiliateLink: 'https://www.adidas.com/us/search?q=Ultra+Boost+22&sitePath=us',
     rating: 4.7,
     reviews: 987
   }
