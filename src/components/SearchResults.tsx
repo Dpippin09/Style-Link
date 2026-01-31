@@ -988,7 +988,7 @@ const mockSearchResults: ShoeProduct[] = [
     brand: 'Adidas',
     price: 120,
     retailer: 'Adidas.com',
-    retailer: 'Adidas.com',
+    image: '/placeholder-shoe-133.jpg',
     affiliateLink: 'https://www.adidas.com/us/pureboost-23-shoes/IF1541.html',
     rating: 4.5,
     reviews: 876,
