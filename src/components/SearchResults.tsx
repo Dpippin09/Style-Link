@@ -1185,7 +1185,6 @@ const mockSearchResults: ShoeProduct[] = [
     name: 'X Crazyfast Elite FG',
     brand: 'Adidas',
     price: 280,
-    affiliateLink: 'https://www.adidas.com/us/search?q=Predator+Elite+FG&sitePath=us',
     retailer: 'Adidas.com',
     image: '/placeholder-shoe-148.jpg',
     affiliateLink: 'https://www.adidas.com/us/search?q=X+Crazyfast+Elite+FG&sitePath=us',
