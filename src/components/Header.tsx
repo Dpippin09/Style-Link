@@ -11,6 +11,12 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 const Header = () => {
+    const [showComingSoon, setShowComingSoon] = useState(false);
+
+    const handleComingSoon = () => {
+      setShowComingSoon(true);
+      setTimeout(() => setShowComingSoon(false), 2000);
+    } 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
   const [isInstallable, setIsInstallable] = useState(false)
@@ -122,20 +128,30 @@ const Header = () => {
             {/* Navigation Links */}
             <nav className="space-y-1">
               <div className="space-y-2">
-                <Link href="/price-alerts" className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-900 rounded-md font-medium transition-colors">
+                <button onClick={handleComingSoon} className="block w-full text-left px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-900 rounded-md font-medium transition-colors">
                   Price Alerts
-                </Link>
-                <Link href="/deals" className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-900 rounded-md font-medium transition-colors">
+                </button>
+                <button onClick={handleComingSoon} className="block w-full text-left px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-900 rounded-md font-medium transition-colors">
                   Top Deals
-                </Link>
+                </button>
                 <Link href="/contact" className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-900 rounded-md font-medium transition-colors">
                   Contact Us
                 </Link>
-                <Link href="/profile" className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-900 rounded-md font-medium transition-colors">
+                <button onClick={handleComingSoon} className="block w-full text-left px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-900 rounded-md font-medium transition-colors">
                   Profile
-                </Link>
+                </button>
               </div>
             </nav>
+          </div>
+        </div>
+      )}
+
+      {/* Coming Soon Modal */}
+      {showComingSoon && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="bg-white rounded-2xl shadow-xl px-8 py-6 text-center max-w-xs mx-auto animate-fade-in">
+            <h3 className="text-xl font-bold mb-2 text-black">Coming Soon</h3>
+            <p className="text-gray-700">This feature is coming soon. Stay tuned!</p>
           </div>
         </div>
       )}
