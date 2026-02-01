@@ -2118,13 +2118,32 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
                 ? 'aspect-square bg-gray-100 relative group'
                 : 'w-24 h-24 bg-gray-100 rounded-lg relative flex-shrink-0'
               }>
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center rounded-lg">
-                  <div className="text-gray-500 text-center">
-                    <div className={viewMode === 'grid' ? 'text-4xl mb-2' : 'text-2xl'}>👟</div>
-                    {viewMode === 'grid' && <p className="text-sm">{shoe.brand}</p>}
+                {shoe.brand === 'Adidas' ? (
+                  <img
+                    src="/icons/adidasLogo.png"
+                    alt="Adidas Logo"
+                    className="absolute inset-0 w-full h-full object-contain p-6"
+                  />
+                ) : shoe.brand === 'Nike' ? (
+                  <img
+                    src="/icons/nikeLogo.png"
+                    alt="Nike Logo"
+                    className="absolute inset-0 w-full h-full object-contain p-6"
+                  />
+                ) : shoe.brand === 'Jordan' ? (
+                  <img
+                    src="/icons/jordanLogo.png"
+                    alt="Jordan Logo"
+                    className="absolute inset-0 w-full h-full object-contain p-6"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center rounded-lg">
+                    <div className="text-gray-500 text-center">
+                      <div className={viewMode === 'grid' ? 'text-4xl mb-2' : 'text-2xl'}>👟</div>
+                      {viewMode === 'grid' && <p className="text-sm">{shoe.brand}</p>}
+                    </div>
                   </div>
-                </div>
-                
+                )}
               </div>
 
               {/* Product Info */}

@@ -188,19 +188,36 @@ const FeaturedCollection = () => {
             >
               {/* Product Image */}
               <div className="aspect-square bg-gray-100 relative group">
-                {/* Placeholder image - you can replace with actual shoe images */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <div className="text-gray-500 text-center">
-                    <div className="text-4xl mb-2">👟</div>
-                    <p className="text-sm">{shoe.brand}</p>
+                {shoe.brand === 'Adidas' ? (
+                  <img
+                    src="/icons/adidasLogo.png"
+                    alt="Adidas Logo"
+                    className="absolute inset-0 w-full h-full object-contain p-6"
+                  />
+                ) : shoe.brand === 'Nike' ? (
+                  <img
+                    src="/icons/nikeLogo.png"
+                    alt="Nike Logo"
+                    className="absolute inset-0 w-full h-full object-contain p-6"
+                  />
+                ) : shoe.brand === 'Jordan' ? (
+                  <img
+                    src="/icons/jordanLogo.png"
+                    alt="Jordan Logo"
+                    className="absolute inset-0 w-full h-full object-contain p-6"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <div className="text-gray-500 text-center">
+                      <div className="text-4xl mb-2">👟</div>
+                      <p className="text-sm">{shoe.brand}</p>
+                    </div>
                   </div>
-                </div>
-                
+                )}
                 {/* Favorite Button */}
                 <button className="absolute top-3 right-3 p-2 bg-stone-300 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity border border-stone-400">
                   <Heart className="h-4 w-4 text-stone-600" />
                 </button>
-
               </div>
 
               {/* Product Info */}

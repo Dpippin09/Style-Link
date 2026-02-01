@@ -14,6 +14,20 @@ const Hero = () => {
     'Athletic shoes'
   ]
 
+  const images = [
+    '/icons/heroImage1.png',
+    '/icons/heroImage2.png',
+    '/icons/heroImage3.png',
+  ];
+  const [currentImage, setCurrentImage] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div className="bg-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -62,16 +76,17 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Image - Rotating Carousel */}
           <div className="relative">
-            <div className="aspect-square relative rounded-2xl overflow-hidden bg-stone-200 border border-stone-300 shadow-xl">
-              {/* Placeholder for hero image - you can replace this with an actual shoe image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-stone-200 via-stone-100 to-stone-200 flex items-center justify-center">
-                <div className="text-stone-800 text-center">
-                  <div className="text-6xl mb-4">👟</div>
-                  <p className="text-lg font-semibold text-stone-700">Premium Shoe Collection</p>
-                </div>
-              </div>
+            <div className="aspect-square relative overflow-hidden border border-stone-300 shadow-xl flex items-center justify-center rounded-2xl">
+              <Image
+                src={images[currentImage]}
+                alt="Hero Image"
+                fill
+                style={{ objectFit: 'cover', borderRadius: '1rem' }}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </div>
           </div>
         </div>
