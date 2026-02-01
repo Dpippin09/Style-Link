@@ -2023,14 +2023,14 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
           {/* Left side filters */}
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4 text-gray-600" />
-              <span className="text-sm font-medium">Filters:</span>
+              <Filter className="h-4 w-4 text-gray-800" />
+              <span className="text-sm font-medium text-gray-900">Filters:</span>
             </div>
             
             <select
               value={filterBrand}
               onChange={(e) => setFilterBrand(e.target.value)}
-              className="px-3 py-1 border border-gray-300 rounded-md text-sm"
+              className="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-900 bg-white"
             >
               <option value="">All Brands</option>
               {brands.map(brand => (
@@ -2039,7 +2039,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
             </select>
             
             <div className="flex items-center gap-2">
-              <span className="text-sm">Price:</span>
+              <span className="text-sm text-gray-900">Price:</span>
               <input
                 type="range"
                 min="0"
@@ -2049,6 +2049,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
                 className="w-20"
               />
               <span className="text-sm text-gray-600">${priceRange[1]}</span>
+                          <span className="text-sm text-gray-900">${priceRange[1]}</span>
             </div>
           </div>
 
@@ -2057,7 +2058,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-1 border border-gray-300 rounded-md text-sm"
+              className="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-900 bg-white"
             >
               <option value="relevance">Sort by Relevance</option>
               <option value="price-low">Price: Low to High</option>

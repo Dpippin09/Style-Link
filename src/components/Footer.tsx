@@ -18,10 +18,9 @@ const Footer = () => {
               Find exactly what you&apos;re looking for at the price you want.
             </p>
             <div className="space-y-1 text-sm text-gray-300">
-              <p>+1 (555) 123-4567</p>
-              <p>hello@stylelink.com</p>
-              <p>123 Fashion Avenue</p>
-              <p>New York, NY 10001</p>
+              <p>adria@stylelinkapp.com</p>
+              <p>PO Box 1036</p>
+              <p>Provo, UT 84603-1036</p>
             </div>
           </div>
 
