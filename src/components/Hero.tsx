@@ -15,9 +15,10 @@ const Hero = () => {
   ]
 
   const images = [
-    '/icons/heroImage1.png',
-    '/icons/heroImage2.png',
-    '/icons/heroImage3.png',
+    '/icons/convers.png',
+    '/icons/orange.png',
+    '/icons/whiteNike.png',
+    '/icons/heroImage4.png',
   ];
   const [currentImage, setCurrentImage] = React.useState(0);
 
